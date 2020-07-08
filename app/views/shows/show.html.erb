@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @show.title %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @show.status %>
+</p>
+
+<p>
+  <strong>Original:</strong>
+  <%= @show.original_id %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @show.season_id %>
+</p>
+
+<p>
+  <strong>List:</strong>
+  <%= @show.list_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @show.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_show_path(@show) %> |
+<%= link_to 'Back', shows_path %>

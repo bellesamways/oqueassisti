@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Seasons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Original</th>
+      <th>Episode</th>
+      <th>Show</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seasons.each do |season| %>
+      <tr>
+        <td><%= season.title %></td>
+        <td><%= season.status %></td>
+        <td><%= season.original_id %></td>
+        <td><%= season.episode_id %></td>
+        <td><%= season.show_id %></td>
+        <td><%= link_to 'Show', season %></td>
+        <td><%= link_to 'Edit', edit_season_path(season) %></td>
+        <td><%= link_to 'Destroy', season, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Season', new_season_path %>

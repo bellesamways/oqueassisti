@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Episodes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Original</th>
+      <th>Season</th>
+      <th>Show</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @episodes.each do |episode| %>
+      <tr>
+        <td><%= episode.title %></td>
+        <td><%= episode.status %></td>
+        <td><%= episode.original_id %></td>
+        <td><%= episode.season_id %></td>
+        <td><%= episode.show_id %></td>
+        <td><%= link_to 'Show', episode %></td>
+        <td><%= link_to 'Edit', edit_episode_path(episode) %></td>
+        <td><%= link_to 'Destroy', episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Episode', new_episode_path %>
