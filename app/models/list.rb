@@ -4,6 +4,7 @@ class List
   field :name, type: String
   field :type, type: String
   belongs_to :user
-  belongs_to :movie
-  belongs_to :show
+  
+  has_and_belongs_to_many :movies
+  has_and_belongs_to_many :shows
 end

@@ -4,6 +4,7 @@ class Movie
   field :title, type: String
   field :status, type: String
   field :original_id, type: Integer
-  belongs_to :list
-  belongs_to :user
+  field :original_title, type: String
+
+  has_and_belongs_to_many :lists
 end
