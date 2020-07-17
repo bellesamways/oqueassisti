@@ -1,24 +1,11 @@
-# README
+# ROADMAP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1- cadastro
+2- login
+3- buscar séries e filmes
+4- ver detalhes de séries e filmes
+5- marcar "quero ver", "já assisti" ou "assistindo (apenas para séries)"
+6- poder remover marcação (dos estados) um a um e em massa
+7- poder excluir a propria conta
+8- criar listas personalizadas
+9- pode limpar lista (remover tudo)
