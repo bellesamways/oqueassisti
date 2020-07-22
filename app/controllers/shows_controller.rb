@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-  before_action :set_show, only: [:show, :edit, :update, :destroy]
+  before_action :set_show, only: %i[show edit update destroy]
 
   # GET /shows
   # GET /shows.json
@@ -9,8 +9,7 @@ class ShowsController < ApplicationController
 
   # GET /shows/1
   # GET /shows/1.json
-  def show
-  end
+  def show; end
 
   # GET /shows/new
   def new
@@ -18,8 +17,7 @@ class ShowsController < ApplicationController
   end
 
   # GET /shows/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /shows
   # POST /shows.json
@@ -62,13 +60,14 @@ class ShowsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_show
-      @show = Show.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def show_params
-      params.require(:show).permit(:title, :status, :original_id, :season_id, :list_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_show
+    @show = Show.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def show_params
+    params.require(:show).permit(:title, :status, :original_id, :season_id, :list_id, :user_id)
+  end
 end
