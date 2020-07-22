@@ -9,6 +9,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'themoviedb'
+gem 'rubocop', '~> 0.8'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -49,6 +50,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rspec-openapi'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
