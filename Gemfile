@@ -10,6 +10,9 @@ gem 'mongoid'
 gem 'bson_ext'
 gem 'themoviedb'
 gem 'rubocop', '~> 0.8'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+gem 'jwt'
+gem 'faker', '~>2.11'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -32,6 +35,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do
@@ -51,6 +55,7 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'rspec-openapi'
+  gem 'factory_bot_rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
