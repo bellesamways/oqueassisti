@@ -28,5 +28,16 @@ module Oqueassisti
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    config.generators do |generate|
+      generate.helper false
+      generate.javascripts false
+      generate.stylesheets false
+      generate.request_specs false
+      generate.routing_specs false
+      generate.view_specs false
+      generate.test_framework :rspec, spec: true, fixture: false
+      generate.fixture_replacement :factory_bot, dir: 'spec/factories'
+    end
   end
 end

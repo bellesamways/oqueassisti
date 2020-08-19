@@ -13,8 +13,6 @@ class User
 
   attr_accessor :old_password
 
-  has_many :lists
-
   has_secure_password
 
   validates :name, presence: true, length: { minimum: 1, maximum: 80 }
@@ -26,6 +24,10 @@ class User
   before_save do
     self.email = email.downcase
     self.username = username.downcase
+  end
+
+  def lists
+    List.where(user_id: id).all.to_a
   end
 
   def password_update
