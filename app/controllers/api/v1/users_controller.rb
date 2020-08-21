@@ -6,15 +6,17 @@ module Api
       # GET /users
       def index
         @users = User.all
+        render json: @users, status: :ok
       end
 
       # GET /users/:id
-      def show; end
+      def show
+        render json: @user
+      end
 
       # POST /users
       def create
         @user = User.new(user_params)
-        @user.save!
 
         if @user.save
           render :show, status: :created
