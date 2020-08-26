@@ -59,6 +59,7 @@ RSpec.describe Api::V1::UsersController do
       }
 
       expect(response).to have_http_status(:created)
+      expect(User.first.username).to eq('testezinho')
     end
 
     it 'returns http unprocessable_entity when email is empty' do
@@ -114,25 +115,27 @@ RSpec.describe Api::V1::UsersController do
     end
   end
 
-  # describe 'PATCH #update' do
-  #   it 'returns ok when change the name to a valid name' do
-  #     user = create(:user,
-  #                   name: 'teste legal',
-  #                   email: 'testelegal@teste.com',
-  #                   username: 'testelegal',
-  #                   password: '123teste'
-  #                   )
+  describe 'PATCH #update' do
+    before do
+      create(:user,
+            name: 'teste legal',
+            email: 'testelegal@teste.com',
+            username: 'testelegal',
+            password: '123teste'
+            )
+    end
 
-  #     patch :update, params: {
-  #       id: user.id,
-  #       "user": {
-  #         name: 'legal teste'
-  #       }
-  #     }
-  #     debugger
+    it 'returns ok when change the name to a valid name' do
+      user = User.first
 
-  #     expect(response).to have_http_status(:ok)
-  #     expect(response.body).to have_content 'legal teste'
-  #   end
-  # end
+      patch :update, params: { id: user.id, user: {
+            username: 'testezinho',
+            old_password: '123teste'
+          }
+        }
+
+      expect(response).to have_http_status(:ok)
+      expect(user.reload.username).to eq('testezinho')
+    end
+  end
 end
