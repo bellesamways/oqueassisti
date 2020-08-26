@@ -19,7 +19,7 @@ module Api
         @user = User.new(user_params)
 
         if @user.save
-          render :show, status: :created
+          redirect_to action: :show, id: @user.id, status: :created
         else
           render json: @user.errors, status: :unprocessable_entity
         end
@@ -28,7 +28,7 @@ module Api
       # PATCH/PUT /users/1
       def update
         if @user.update(user_params_update)
-          render :show, status: :ok
+          redirect_to action: :show, id: @user.id, status: :ok
         else
           render json: @user.errors, status: :unprocessable_entity
         end
