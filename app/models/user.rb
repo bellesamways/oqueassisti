@@ -21,13 +21,11 @@ class User
 
   validate :password_update, on: :update
 
+  embeds_many :lists
+
   before_save do
     self.email = email.downcase
     self.username = username.downcase
-  end
-
-  def lists
-    List.where(user_id: id).all.to_a
   end
 
   def password_update
