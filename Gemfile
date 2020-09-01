@@ -52,6 +52,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
   gem 'factory_bot', '~> 5.2'
+  gem 'mongoid-rspec'
   gem 'rspec-openapi'
   gem 'selenium-webdriver'
   gem 'simplecov'
