@@ -34,6 +34,21 @@ module Api
         end
       end
 
+      # PATCH /users/1
+      def update_password
+        @user = User.find(params[:id])
+
+        @user.old_password = user_params_update_password['old_password']
+        @user.password = user_params_update_password['password']
+
+        if @user.valid? && !@user.password.nil?
+          @user.save!
+          redirect_to action: :show, id: @user.id, status: :ok
+        else
+          render json: @user.errors, status: :unprocessable_entity
+        end
+      end
+
       # DELETE /users/1
       def destroy
         @user.destroy
@@ -54,7 +69,11 @@ module Api
       end
 
       def user_params_update
-        params.require(:user).permit(:name, :email, :username, :password, :old_password)
+        params.require(:user).permit(:name, :email, :username, :old_password)
+      end
+
+      def user_params_update_password
+        params.require(:user).permit(:password, :old_password)
       end
     end
   end
